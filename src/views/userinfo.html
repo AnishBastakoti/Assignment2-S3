@@ -58,7 +58,7 @@
             </div>
             <p><strong>You can update your card details below:-</strong></p>
             <label class="word">Name on the Card</label>
-            <input class="text"type="text" name="cardname" placeholder="User Name">
+            <input class="text"type="text" name="cardname" placeholder="User Name" autocomplete="on">
             <label class="word">Credit card number</label>
             <input class="text" type="text" name="cardnumber" placeholder="XXX-XXXX-XXXX-4444">
             <label class="word">Exp Month</label>
@@ -85,8 +85,8 @@
         <span class="close" onclick="goBack()">&times;</span>
         <form name="form" class="popupbox" onsubmit="return validateForm()" method="post" required>
           <h2 style="color:#000;"> Contact us</h2>
-          <input type="text" name="fname" placeholder="Your Name"/>
-          <input type="text" name="email" placeholder="info@damain.com"/>
+          <input type="text" name="fname" placeholder="Your Name" autocomplete="on"/>
+          <input type="text" name="email" placeholder="info@damain.com" autocomplete="on"/>
           <textarea type="text" name="message" placeholder="Message"></textarea>
           <input id ="register" type="submit" class="info-btn" onclick="window.location='userinfo.html'" value="submit"/>
         </form>
