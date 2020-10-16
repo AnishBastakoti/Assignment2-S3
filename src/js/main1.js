@@ -1,6 +1,6 @@
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('../../sw.js', {scope: 'mainpage.html'}).then(function(registration) {
+    navigator.serviceWorker.register('../../sw.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }, function(err) {
@@ -9,7 +9,7 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
-/*
+
 Notification.requestPermission(function(status) {
     console.log('Notification permission status:', status);
 });
@@ -47,48 +47,6 @@ self.addEventListener('notificationclick', function(event) {
   if (action === 'close') {
     notification.close();
   } else {
-    clients.openWindow('http://www.youtube.com');
+    clients.openWindow('https://www.youtube.com');
   }
 });
-
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI notify the user they can install the PWA
-  showInstallPromotion();
-});
-
-buttonInstall.addEventListener('click', (e) => {
-  // Hide the app provided install promotion
-  hideMyInstallPromotion();
-  // Show the install prompt
-  deferredPrompt.prompt();
-  // Wait for the user to respond to the prompt
-  deferredPrompt.userChoice.then((choiceResult) => {
-    if (choiceResult.outcome === 'accepted') {
-      console.log('User accepted the install prompt');
-    } else {
-      console.log('User dismissed the install prompt');
-    }
-  });
-});
-window.addEventListener('appinstalled', (evt) => {
-  // Log install to analytics
-  console.log('INSTALL: Success');
-});
-
-var buttonInstall = `
-    buttonInstall{
-    padding: 10px;
-    border: 2px solid #F10;
-    background:#F10;
-  }
-`
-var styleSheet = document.createElement("buttonInstall")
-styleSheet.type = "text/css"
-styleSheet.innerText = styles
-*/
